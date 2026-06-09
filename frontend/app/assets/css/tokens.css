@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors - Refined for depth */
+  --tf-primary: #1d6fa4;
+  --tf-primary-dark: #155680;
+  --tf-primary-light: #f0f7ff; /* Lighter for cleaner backgrounds */
+
+  /* Accent - Refined Amber */
+  --tf-accent: #f59e0b;
+  --tf-accent-dark: #d97706;
+
+  /* Neutrals - Cleaner Slate Scale */
+  --tf-surface: #ffffff;
+  --tf-surface-alt: #f8fafc;
+  --tf-border: #e2e8f0;
+  --tf-border-muted: #f1f5f9;
+
+  /* Text - High Contrast for Readability */
+  --tf-text-primary: #020617; /* Near black */
+  --tf-text-body: #334155;    /* Slate 700 */
+  --tf-text-muted: #64748b;   /* Slate 500 */
+  --tf-text-inverse: #ffffff;
+
+  /* Semantic */
+  --tf-success: #10b981;
+  --tf-error: #ef4444;
+
+  /* Typography - Premium Scale */
+  --tf-font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tf-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Type Scale (Major Second) */
+  --tf-text-xs: 0.75rem;
+  --tf-text-sm: 0.875rem;
+  --tf-text-base: 1rem;
+  --tf-text-lg: 1.125rem;
+  --tf-text-xl: 1.25rem;
+  --tf-text-2xl: 1.5rem;
+  --tf-text-3xl: 2rem;       /* 32px */
+  --tf-text-4xl: 2.5rem;     /* 40px */
+  --tf-text-5xl: 3.5rem;     /* 56px */
+  --tf-text-6xl: 4.5rem;     /* 72px */
+
+  /* Weights */
+  --tf-weight-regular: 400;
+  --tf-weight-medium: 500;
+  --tf-weight-semibold: 600;
+  --tf-weight-bold: 700;
+  --tf-weight-extrabold: 800;
+
+  /* Spacing */
+  --tf-space-1: 0.25rem;
+  --tf-space-2: 0.5rem;
+  --tf-space-3: 0.75rem;
+  --tf-space-4: 1rem;
+  --tf-space-6: 1.5rem;
+  --tf-space-8: 2rem;
+  --tf-space-12: 3rem;
+  --tf-space-16: 4rem;
+  --tf-space-20: 5rem;
+  --tf-space-24: 6rem;
+  --tf-space-32: 8rem;
+
+  --tf-section-py-sm: var(--tf-space-16);
+  --tf-section-py-lg: var(--tf-space-32);
+
+  /* Radius - More generous Apple-style */
+  --tf-radius-sm: 0.375rem;
+  --tf-radius-md: 0.75rem;
+  --tf-radius-lg: 1rem;
+  --tf-radius-xl: 1.5rem;
+  --tf-radius-2xl: 2rem;
+  --tf-radius-full: 9999px;
+
+  /* Shadows - Layered and soft */
+  --tf-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tf-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tf-shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tf-shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+  /* Layout */
+  --tf-container-max: 1200px;
+  --tf-container-pad: 1.5rem;
+  --tf-container-pad-lg: 2.5rem;
+  --tf-nav-height: 72px; /* Slightly taller for premium feel */
+}
+
+@layer base {
+  body {
+    @apply bg-tf-surface text-tf-text-body font-body antialiased selection:bg-tf-primary selection:text-white;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-tf-text-primary font-display font-bold tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* Component Classes */
+.btn-primary {
+  @apply inline-flex items-center justify-center transition-all duration-200 active:scale-[0.98];
+  background: var(--tf-primary);
+  color: var(--tf-text-inverse);
+  border-radius: var(--tf-radius-md);
+  font-family: var(--tf-font-display);
+  font-weight: var(--tf-weight-semibold);
+  padding: 0.875rem 1.75rem;
+}
+.btn-primary:hover {
+  background: var(--tf-primary-dark);
+  box-shadow: 0 0 20px rgba(29, 111, 164, 0.2);
+}
+
+.btn-accent {
+  @apply inline-flex items-center justify-center transition-all duration-200 active:scale-[0.98];
+  background: var(--tf-accent);
+  color: var(--tf-text-primary);
+  border-radius: var(--tf-radius-md);
+  font-family: var(--tf-font-display);
+  font-weight: var(--tf-weight-bold);
+  padding: 0.875rem 1.75rem;
+}
+.btn-accent:hover {
+  background: var(--tf-accent-dark);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center transition-all duration-200 active:scale-[0.98];
+  background: transparent;
+  color: var(--tf-primary);
+  border: 1.5px solid var(--tf-primary);
+  border-radius: var(--tf-radius-md);
+  font-family: var(--tf-font-display);
+  font-weight: var(--tf-weight-semibold);
+  padding: 0.875rem 1.75rem;
+}
+.btn-ghost:hover {
+  background: var(--tf-primary-light);
+}
+
+.card {
+  @apply transition-all duration-300;
+  background: var(--tf-surface);
+  border: 1px solid var(--tf-border);
+  border-radius: var(--tf-radius-lg);
+  box-shadow: var(--tf-shadow-card);
+  padding: var(--tf-space-8);
+}
+.card:hover {
+  @apply border-tf-primary/20;
+  box-shadow: var(--tf-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full;
+  background: var(--tf-primary-light);
+  color: var(--tf-primary);
+  font-size: var(--tf-text-xs);
+  font-weight: var(--tf-weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}

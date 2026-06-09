@@ -1,0 +1,193 @@
+nuxt-project-structure.txt
+Timeframe Solutions — Nuxt 4 Project File Tree
+Generated: 2025
+Convention: All source files live inside app/ (Nuxt 4 standard)
+
+timeframe-solutions/
+├── app/
+│   ├── assets/
+│   │   └── css/
+│   │       └── tokens.css                  ← CSS custom properties + Tailwind @theme block
+│   │
+│   ├── components/
+│   │   │
+│   │   ├── global/                         ← Auto-imported, used across all pages
+│   │   │   ├── NavBar.vue
+│   │   │   ├── Footer.vue
+│   │   │   └── CtaBanner.vue               ← Reusable CTA strip (heading, subheading, button)
+│   │   │
+│   │   ├── home/                           ← Page-scoped: index.vue only
+│   │   │   ├── HeroSection.vue
+│   │   │   ├── ServicesStrip.vue
+│   │   │   ├── PortfolioPreview.vue
+│   │   │   ├── WhyTimeframe.vue
+│   │   │   └── PricingSnapshot.vue
+│   │   │
+│   │   ├── work/                           ← Page-scoped: /work and /work/* pages
+│   │   │   ├── PortfolioGrid.vue
+│   │   │   ├── PortfolioCard.vue
+│   │   │   ├── CaseStudyHero.vue
+│   │   │   ├── CaseStudyMeta.vue
+│   │   │   ├── CaseStudyScreenshots.vue
+│   │   │   ├── CaseStudyFeatures.vue
+│   │   │   └── CaseStudyDemonstrates.vue
+│   │   │
+│   │   ├── services/                       ← Page-scoped: /services
+│   │   │   ├── ServiceDetail.vue
+│   │   │   ├── IncludesList.vue
+│   │   │   └── UpsellList.vue
+│   │   │
+│   │   ├── pricing/                        ← Page-scoped: /pricing
+│   │   │   ├── PricingCard.vue
+│   │   │   └── PricingFaq.vue
+│   │   │
+│   │   ├── about/                          ← Page-scoped: /about
+│   │   │   ├── AboutStory.vue
+│   │   │   └── AboutStack.vue
+│   │   │
+│   │   ├── contact/                        ← Page-scoped: /contact
+│   │   │   ├── ContactGrid.vue
+│   │   │   ├── ContactWhatsApp.vue
+│   │   │   ├── ContactForm.vue
+│   │   │   └── ContactMeta.vue
+│   │   │
+│   │   └── ui/                             ← Primitive / shared UI atoms
+│   │       ├── AppButton.vue               ← variant prop: 'primary' | 'accent' | 'ghost'
+│   │       ├── AppBadge.vue                ← industry tags, section eyebrows
+│   │       ├── AppCard.vue                 ← base card shell
+│   │       ├── PageHero.vue                ← heading + subheading block for inner pages
+│   │       └── SectionWrapper.vue          ← consistent section padding + max-width container
+│   │
+│   ├── composables/
+│   │   ├── useWhatsApp.ts                  ← builds wa.me URL with pre-filled message
+│   │   └── useContactForm.ts               ← form state, validation, $fetch to server route
+│   │
+│   ├── data/
+│   │   ├── portfolio.ts                    ← typed array of all 4 portfolio projects
+│   │   ├── services.ts                     ← typed array of all 5 verticals + features
+│   │   ├── pricing-faq.ts                  ← FAQ Q&A pairs for PricingFaq accordion
+│   │   └── why-timeframe.ts                ← proof point objects for WhyTimeframe
+│   │
+│   ├── layouts/
+│   │   └── default.vue                     ← NavBar + <slot> + Footer + Google Fonts <head>
+│   │
+│   ├── pages/
+│   │   ├── index.vue                       ← /
+│   │   ├── work/
+│   │   │   ├── index.vue                   ← /work
+│   │   │   ├── vanguard-properties.vue     ← /work/vanguard-properties
+│   │   │   ├── apex-rides-nairobi.vue      ← /work/apex-rides-nairobi
+│   │   │   ├── plaza-dental-clinic.vue     ← /work/plaza-dental-clinic
+│   │   │   └── nexus-gadgets-kenya.vue     ← /work/nexus-gadgets-kenya
+│   │   ├── services.vue                    ← /services
+│   │   ├── pricing.vue                     ← /pricing
+│   │   ├── about.vue                       ← /about
+│   │   └── contact.vue                     ← /contact
+│   │
+│   └── types/
+│       └── index.ts                        ← shared TypeScript interfaces (PortfolioProject, ServiceVertical, FaqItem)
+│
+├── public/
+│   ├── favicon.ico
+│   ├── robots.txt                          ← Allow: /, Disallow: /api/
+│   └── images/
+│       ├── logo.svg                        ← Timeframe Solutions logo
+│       └── portfolio/
+│           ├── vanguard/                   ← screenshot assets for case study
+│           ├── apex/
+│           ├── plaza/
+│           └── nexus/
+│
+├── server/
+│   └── api/
+│       └── contact.post.ts                 ← Handles contact form POST, sends email or logs
+│
+├── nuxt.config.ts
+├── tailwind.config.ts                      ← Empty in v4; config lives in tokens.css @theme block
+├── tsconfig.json
+├── package.json
+└── .env                                    ← WHATSAPP_NUMBER, CONTACT_EMAIL (never commit)
+
+
+────────────────────────────────────────────────────────────────
+KEY CONVENTIONS
+────────────────────────────────────────────────────────────────
+
+1. No raw hex values in components.
+   Always use CSS custom properties: var(--tf-primary), var(--tf-accent), etc.
+   Or Tailwind utilities exposed via @theme: bg-tf-primary, text-tf-accent.
+
+2. No direct $fetch in components.
+   All server communication goes through composables (useContactForm.ts).
+
+3. WhatsApp links always via useWhatsApp composable.
+   Centralises the phone number and pre-fill message in one place.
+
+4. All static content lives in app/data/*.ts
+   Components receive props from page-level data imports, not hardcoded strings.
+   This makes content.md → code a clean mapping.
+
+5. Images always via <NuxtImg> with WebP + lazy loading.
+   Never raw <img> tags.
+
+6. useSeoMeta() called in every page file.
+   Copy from sitemap.md SEO blocks.
+
+7. server/api/contact.post.ts
+   Reads CONTACT_EMAIL from runtime config.
+   Returns { success: true } or { success: false, error: string }.
+
+
+────────────────────────────────────────────────────────────────
+NUXT CONFIG SKELETON (nuxt.config.ts)
+────────────────────────────────────────────────────────────────
+
+export default defineNuxtConfig({
+  compatibilityDate: '2025-01-01',
+  future: { compatibilityVersion: 4 },
+
+  modules: [
+    '@nuxt/icon',
+    '@nuxtjs/seo',
+    '@nuxt/image',
+  ],
+
+  css: ['~/assets/css/tokens.css'],
+
+  runtimeConfig: {
+    contactEmail: process.env.CONTACT_EMAIL,
+    public: {
+      whatsappNumber: process.env.WHATSAPP_NUMBER ?? '254700000000',
+    },
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap',
+        },
+      ],
+    },
+  },
+
+  site: {
+    url: 'https://timeframesolutions.co.ke',
+    name: 'Timeframe Solutions',
+  },
+})
+
+
+────────────────────────────────────────────────────────────────
+PROGRESS
+────────────────────────────────────────────────────────────────
+
+✅ project-brief.md
+✅ sitemap.md
+✅ design-tokens.md
+✅ content.md
+✅ nuxt-project-structure.txt     ← you are here
+⬜ component-inventory.md

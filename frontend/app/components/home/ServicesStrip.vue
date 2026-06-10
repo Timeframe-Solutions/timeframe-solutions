@@ -8,7 +8,7 @@
         Your industry. Your website.
       </h2>
       <p class="text-[var(--tf-text-body)] max-w-2xl mx-auto">
-        We've built demo sites for the verticals we know best — so you can see
+        We've built demo sites for the verticals we know best so you can see
         exactly what your site could look like before we start.
       </p>
     </div>

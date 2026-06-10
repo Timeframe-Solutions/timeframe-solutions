@@ -19,6 +19,90 @@
       </svg>
     </div>
 
+    <!-- Comet trails -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <svg
+        class="absolute inset-0 w-full h-full"
+        viewBox="0 0 1440 800"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="comet1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0" />
+            <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.7" />
+          </linearGradient>
+          <linearGradient id="comet2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#d97706" stop-opacity="0" />
+            <stop offset="70%" stop-color="#d97706" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.5" />
+          </linearGradient>
+          <linearGradient id="comet3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0" />
+            <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.4" />
+          </linearGradient>
+        </defs>
+        <!-- Comet 1 — main, mid-screen diagonal -->
+        <line
+          x1="-200"
+          y1="180"
+          x2="900"
+          y2="420"
+          stroke="url(#comet1)"
+          stroke-width="1.5"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="-900 -300"
+            to="1600 400"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <!-- Comet 2 — thinner, upper third -->
+        <line
+          x1="-100"
+          y1="80"
+          x2="700"
+          y2="260"
+          stroke="url(#comet2)"
+          stroke-width="1"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="-800 -200"
+            to="1800 300"
+            dur="5.5s"
+            begin="1.8s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <!-- Comet 3 — faint, lower arc -->
+        <line
+          x1="-300"
+          y1="320"
+          x2="600"
+          y2="520"
+          stroke="url(#comet3)"
+          stroke-width="0.8"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="-1000 -100"
+            to="1400 200"
+            dur="7s"
+            begin="3.2s"
+            repeatCount="indefinite"
+          />
+        </line>
+      </svg>
+    </div>
+
     <div
       class="relative z-10 flex flex-col items-center text-center mx-auto max-w-5xl"
     >
@@ -36,12 +120,13 @@
       >
         Nairobi's premier studio for high-conversion web solutions.
         <br class="hidden md:block" />
-        Fixed price
+        Premium quality at an accessible investment.
         <span
           class="text-tf-text-primary font-bold underline decoration-tf-accent/40 decoration-4 underline-offset-4 text-2xl md:text-3xl mx-1"
-          >KES 80,000</span
         >
-        delivered in 14 days.
+          Digital done right
+        </span>
+        finally
       </p>
 
       <div class="flex flex-col sm:flex-row items-center gap-6">

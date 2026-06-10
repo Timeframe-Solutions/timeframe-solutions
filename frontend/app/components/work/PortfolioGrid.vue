@@ -1,8 +1,8 @@
 <template>
   <UiSectionWrapper bg="surface" py="lg">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <WorkPortfolioCard 
-        v-for="project in projects" 
+      <WorkPortfolioCard
+        v-for="project in projects"
         :key="project.slug"
         :project="project"
       />
@@ -11,9 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import type { PortfolioProject } from '~/app/types'
+import type { PortfolioProject } from "~/types";
 
 defineProps<{
-  projects: PortfolioProject[]
-}>()
+  projects: PortfolioProject[];
+}>();
 </script>

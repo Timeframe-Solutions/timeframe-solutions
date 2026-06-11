@@ -8,6 +8,7 @@ export interface PortfolioProject {
   pages: string;
   features: string[];
   demonstrates: string;
+  liveUrl?: string;
 }
 
 export interface ServiceVertical {

@@ -20,7 +20,7 @@ export const projects: PortfolioProject[] = [
     ],
     demonstrates:
       "For property agents, developers, and landlords: we can build your listings site, your search, and your lead capture — all in one clean package.",
-    liveUrl: "https://vanguardproperties.demo.site",
+    liveUrl: "https://vanguard-properties.vercel.app/",
   },
   {
     slug: "apex-rides-nairobi",

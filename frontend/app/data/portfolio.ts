@@ -81,6 +81,6 @@ export const projects: PortfolioProject[] = [
     ],
     demonstrates:
       "For electronics shops and phone dealers: stop losing sales to Instagram DMs. Your customers get a real storefront — browse, cart, order, done.",
-    liveUrl: "https://nexusgadgets.demo.site",
+    liveUrl: "https://nexus-gadgets-one.vercel.app/",
   },
 ];

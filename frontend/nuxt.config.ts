@@ -10,9 +10,10 @@ export default defineNuxtConfig({
   css: ["~/assets/css/tokens.css"],
 
   runtimeConfig: {
-    contactEmail: "",
+    resendApiKey: "re_YbHiKkco_638tFSMTYM8VNtjpVr7QMzmn",
+    contactEmail: "collins.m.kimani@gmail.com",
     public: {
-      whatsappNumber: "254700000000",
+      whatsappNumber: "254741775492",
     },
   },
 

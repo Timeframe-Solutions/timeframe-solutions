@@ -40,7 +40,7 @@ export const projects: PortfolioProject[] = [
     ],
     demonstrates:
       "For car hire businesses and fleet owners: your customers can browse, price, and book online — without a single WhatsApp DM needed.",
-    liveUrl: "https://apexrides.demo.site",
+    liveUrl: "https://apex-rides-sandy.vercel.app/",
   },
   {
     slug: "plaza-dental-clinic",

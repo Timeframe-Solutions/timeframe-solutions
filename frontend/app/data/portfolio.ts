@@ -83,4 +83,26 @@ export const projects: PortfolioProject[] = [
       "For electronics shops and phone dealers: stop losing sales to Instagram DMs. Your customers get a real storefront — browse, cart, order, done.",
     liveUrl: "https://nexus-gadgets-one.vercel.app/",
   },
+  {
+    slug: "ivory-hotel",
+    title: "Ivory Hotel",
+    industry: "Hospitality",
+    oneLiner:
+      "Premium hotel website featuring a suite showcase, digital restaurant menu, and direct booking inquiries.",
+    coverImage: "/images/portfolio/hotel/cover.webp",
+    route: "/work/ivory-hotel",
+    pages:
+      "6 (Home, Rooms & Suites, Restaurant, Gallery, About Us, Contact Us)",
+    features: [
+      "Room & suite catalog with detailed amenities and size specs",
+      "Dynamic digital dining menu with categorized sections",
+      "High-resolution media gallery highlighting rooms and facilities",
+      "Commission-free room reservation request forms",
+      "Premium, responsive layout featuring elegant typography and dark gold accents",
+      "Localized SEO integration for hospital and tourism search visibility",
+    ],
+    demonstrates:
+      "For boutique hotels, luxury lodges, and guest houses: bypass OTA fees with a premium direct-booking platform showcasing your rooms and dining experiences.",
+    liveUrl: "https://ivory-hotel-demo.vercel.app/",
+  },
 ];

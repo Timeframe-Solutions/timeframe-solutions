@@ -2,7 +2,7 @@
   <div>
     <UiPageHero
       heading="Our Work"
-      subheading="See your industry reimagined. Four live demos that show exactly how we'd transform your digital presence."
+      subheading="See your industry reimagined. Five live demos that show exactly how we'd transform your digital presence."
     />
 
     <WorkPortfolioGrid :projects="projects" />
